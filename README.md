@@ -18,3 +18,5 @@ Part 2 is in `Scene2`
 ![Scene1Image](readmeassets/A1S2.png)
 
 The "blur" in the inner planets is due to gravitational pull from planets to sun combined with the high timestep and long trail duration.
+
+I had also removed the `Time.deltaTime` component in the solar system scene because dropped frames led to unexpected "shoot offs"
