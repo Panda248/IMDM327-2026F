@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public struct BodyProperty
 {
+    public string name;
     public float mass;              
     public float distance;         
     public float initial_velocity; 
@@ -59,6 +60,7 @@ public class DataCSV : MonoBehaviour
             {
                 // assignment into array
                 // solar.csv already stores mass in kilograms.
+                bp[i].name = cols[0].Trim();
                 bp[i].mass = mass;
                 bp[i].distance = dist;
                 bp[i].initial_velocity = vel;
