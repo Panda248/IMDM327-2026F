@@ -11,6 +11,10 @@ Assignment 1 scenes can be found in `Assets\327_CourseMaterial\Scenes\Assignment
 
 Part 1 is in `Scene1` 
 
-
+![Scene1Image](readmeassets/A1S1.png)
 
 Part 2 is in `Scene2`
+
+![Scene1Image](readmeassets/A1S2.png)
+
+The "blur" in the inner planets is due to gravitational pull from planets to sun combined with the high timestep and long trail duration.

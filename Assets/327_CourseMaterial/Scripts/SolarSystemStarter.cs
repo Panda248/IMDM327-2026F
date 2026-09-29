@@ -80,7 +80,7 @@ public class SolarSystemStarter : MonoBehaviour
             // + This is just pretty trails
             TrailRenderer trailRenderer = planetProperties[i].planet.AddComponent<TrailRenderer>();
             // Configure the TrailRenderer's properties
-            trailRenderer.time = 10.0f;  // Duration of the trail
+            trailRenderer.time = 100.0f;  // Duration of the trail
             trailRenderer.startWidth = 0.5f;  // Width of the trail at the start
             trailRenderer.endWidth = 0.1f;    // Width of the trail at the end
             // a material to the trail
@@ -127,8 +127,8 @@ public class SolarSystemStarter : MonoBehaviour
         // 02. Loop through each body to update its velocity and position based on the calculated acceleration
        for (int i = 0; i < numberOfSphere; i++)
         {
-            planetProperties[i].velocity += planetProperties[i].acceleration * Time.deltaTime * timeStep;
-            planetProperties[i].actualPosition += planetProperties[i].velocity * Time.deltaTime * timeStep;
+            planetProperties[i].velocity += planetProperties[i].acceleration * timeStep;
+            planetProperties[i].actualPosition += planetProperties[i].velocity  * timeStep;
              //Scale: float scaledDistance = Mathf.Sqrt(actualPosition[i].magnitude / 1e8f);
 
              float scaledDistance = Mathf.Sqrt(planetProperties[i].actualPosition.magnitude / 1e8f);

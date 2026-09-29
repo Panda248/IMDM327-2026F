@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThreeBody
   G: 500
   numberOfSphere: 100
-  timeStep: 0.01
+  timeStep: 0.1
   separationDistance: 10
   separationForce: 500
   alignForce: 1000
