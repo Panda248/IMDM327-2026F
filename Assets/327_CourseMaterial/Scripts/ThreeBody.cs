@@ -14,6 +14,8 @@ public class ThreeBody : MonoBehaviour
     public float separationDistance = 3f;
     public float separationForce = 10f;
     public float alignForce = 10f;
+    public float radius = 100f;
+    public float z = 180f;
     class BodyProperty // why struct?
     {                   // https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct
         public GameObject body;
@@ -39,12 +41,12 @@ public class ThreeBody : MonoBehaviour
             bp[i].body.tag = "Body";
 
             // initial conditions
-            float r = 100f;
+            float r = radius;
             float deltaTheta = 2 * Mathf.PI / numberOfSphere;
             // position is (x,y,z). In this case, I want to plot them on the circle with r
 
             // ******** Fill in this part ********
-            bp[i].body.transform.position = new Vector3( Mathf.Cos(deltaTheta * i) * r, Mathf.Sin(deltaTheta * i) * r, 180);
+            bp[i].body.transform.position = new Vector3( Mathf.Cos(deltaTheta * i) * r, Mathf.Sin(deltaTheta * i) * r, z);
             //z = 180 places the bodies in front of a camera near the origin looking along +Z. Try other positions too.
 
             bp[i].velocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)); 
@@ -107,7 +109,7 @@ public class ThreeBody : MonoBehaviour
                 }
 
                 //Align
-                Vector3 align = CalculateGravity(-bp[i].body.transform.position, bp[i].mass, bp[i].mass);
+                Vector3 align = CalculateGravity(transform.position-bp[i].body.transform.position, bp[i].mass, bp[i].mass);
                 bp[i].acceleration += align * alignForce / bp[i].mass;
 
             }

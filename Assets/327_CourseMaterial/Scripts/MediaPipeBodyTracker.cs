@@ -45,6 +45,7 @@ public class MediaPipeBodyTracker : MonoBehaviour
     private Coroutine subscribeRoutine;
     private bool hasSubscriptions;
     private HolisticTrackingGraph subscribedRunner;
+    private static MediaPipeBodyTracker instance;
 
     public Vector3 LeftHandPosition => leftHandPosition;
     public bool LeftHandPinch => leftHandPinch;
@@ -54,9 +55,28 @@ public class MediaPipeBodyTracker : MonoBehaviour
     public bool RightHandTracked => isActiveAndEnabled && rightHandTracked;
     public Vector3 TorsoPosition => torsoPosition;
     public Vector3 HeadPosition => headPosition;
+    public Vector3[] RightLandmarkPositions = new Vector3[21];
+    public Vector3[] LeftLandmarkPositions = new Vector3[21];
+
+    public static MediaPipeBodyTracker Instance()
+    {
+        if (instance == null)
+        {
+            instance = FindAnyObjectByType<MediaPipeBodyTracker>();
+        }
+        return instance;
+    }
 
     private void OnEnable()
     {
+        if (RightLandmarkPositions.Length != 21)
+        {
+            RightLandmarkPositions = new Vector3[21];
+        }
+        if (LeftLandmarkPositions.Length != 21)
+        {
+            LeftLandmarkPositions = new Vector3[21];
+        }
         if (graphRunner == null)
         {
             graphRunner = FindObjectOfType<HolisticTrackingGraph>();
@@ -238,6 +258,17 @@ public class MediaPipeBodyTracker : MonoBehaviour
                 leftHandTracked = true;
                 pendingLeftHandPosition = ToUnityVector(landmarkList.Landmark[0]);
                 pendingLeftPinch = IsPinching(landmarkList);
+                for (int i = 0; i < LeftLandmarkPositions.Length; i++)
+                {
+                    if (i < landmarkList.Landmark.Count)
+                    {
+                        LeftLandmarkPositions[i] = ToUnityVector(landmarkList.Landmark[i]);
+                    }
+                    else
+                    {
+                        LeftLandmarkPositions[i] = Vector3.zero;
+                    }
+                }
             }
             else
             {
@@ -264,6 +295,17 @@ public class MediaPipeBodyTracker : MonoBehaviour
         {
             if (landmarkList != null && landmarkList.Landmark.Count > 0)
             {
+                for (int i = 0; i < RightLandmarkPositions.Length; i++)
+                {
+                    if (i < landmarkList.Landmark.Count)
+                    {
+                        RightLandmarkPositions[i] = ToUnityVector(landmarkList.Landmark[i]);
+                    }
+                    else
+                    {
+                        RightLandmarkPositions[i] = Vector3.zero;
+                    }
+                }
                 rightHandTracked = true;
                 pendingRightHandPosition = ToUnityVector(landmarkList.Landmark[0]);
                 pendingRightPinch = IsPinching(landmarkList);
