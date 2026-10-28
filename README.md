@@ -60,3 +60,42 @@ Part 2 is in `Scene2`
 The "blur" in the inner planets is due to gravitational pull from planets to sun combined with the high timestep and long trail duration.
 
 I had also removed the `Time.deltaTime` component in the solar system scene because dropped frames led to unexpected "shoot offs"
+
+### Assignment 2
+My system is inspired by the behavior of neutrons and the chain reaction that powers nuclear power and nuclear bombs. Excited neutrons bump into other neutrons which split and release energy.
+
+I sought to develop a system centered around clustering then spreading out these particles. When these particles get too close, they collide and cause various forms of feedback.
+
+The right hand controls the positions of 6 different particle groups: \
+Palm, Thumb, Index, Middle, Ring, and Pinky
+
+The left hand has much more complex controls.
+
+The thumb of the left hand controls three things: 
+* The zoom of the background visual
+* The rate of hue shifting that particles go through
+* The tone of the background audio
+As the thumb curls, these effects amplify
+
+For the rest of the fingers, they contribute to the "clustering" and "spread" of the particles.
+
+Putting fingertips close together decreases the threshold distance to begin repulsing.
+Curling fingertips weakens the repulsion strength that particles feel.
+
+The combination of these two cause the particles to cluster together when you make a closed fist or close your palm.
+
+When you straighten your fingers and spread your fingertips, the particles spread out.
+
+When particles get close together, they start getting "agitated" and begin to "spazz out". The strength of this "spazz" is inversely proportional to the distance to the nearest neighbor in the boid group.
+
+With regards to feedback, the sound feedback is dependent on the number of "collisions" happening in a set period of time. Collisions are detected by the distance of the closest neighbor belonging to the particle's group. Once this distance crosses a threshold, a collision is detected. \
+The "strength" of the collision is given by 
+
+$e^{a(d-d_0)}$ 
+
+where $a$ is a constant, $d$ is the distance, and $d_0$ is 
+
+the threshold distance. This is used for the sound effect
+The total collision strength of all boid groups are computed over a period of time, and then contributes to the pitch (inversely) and volume of the collision sound.
+
+[![Click To Watch Demo](readmeassets/A2.png)](https://youtu.be/0ppZreMiD7c)
