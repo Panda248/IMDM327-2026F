@@ -98,4 +98,4 @@ where $a$ is a constant, $d$ is the distance, and $d_0$ is
 the threshold distance. This is used for the sound effect
 The total collision strength of all boid groups are computed over a period of time, and then contributes to the pitch (inversely) and volume of the collision sound.
 
-[![Click To Watch Demo](readmeassets/A2.png)](https://youtu.be/0ppZreMiD7c)
+[![Click To Watch Demo](readmeassets/A2Gif.gif)](https://youtu.be/0ppZreMiD7c)
