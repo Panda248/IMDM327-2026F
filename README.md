@@ -47,7 +47,7 @@ Instructor, Myungin Lee
 
 ### Assignment 1
 
-Assignment 1 scenes can be found in `Assets\327_CourseMaterial\Scenes\Assignment1` 
+Assignment 1 scenes can be found in `Assets\327_CourseMaterial\Assignments\Assignment1` 
 
 Part 1 is in `Scene1` 
 
@@ -62,6 +62,9 @@ The "blur" in the inner planets is due to gravitational pull from planets to sun
 I had also removed the `Time.deltaTime` component in the solar system scene because dropped frames led to unexpected "shoot offs"
 
 ### Assignment 2
+
+Assignment 2 scenes can be found in `Assets\327_CourseMaterial\Assignments\Assignment2` 
+
 My system is inspired by the behavior of neutrons and the chain reaction that powers nuclear power and nuclear bombs. Excited neutrons bump into other neutrons which split and release energy.
 
 I sought to develop a system centered around clustering then spreading out these particles. When these particles get too close, they collide and cause various forms of feedback.
