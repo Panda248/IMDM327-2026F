@@ -102,3 +102,8 @@ the threshold distance. This is used for the sound effect
 The total collision strength of all boid groups are computed over a period of time, and then contributes to the pitch (inversely) and volume of the collision sound.
 
 [![Click To Watch Demo](readmeassets/A2Gif.gif)](https://youtu.be/0ppZreMiD7c)
+
+### Assignment 3
+Assignment 3 can be found in
+`Assets\327_CourseMaterial\Assignments\Assignment3`
+![Demo](readmeassets/A3.gif)
